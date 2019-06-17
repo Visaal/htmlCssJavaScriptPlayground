@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>JS Playground</title>
+    <meta name="description" content="JS playground with HTML elements" />
+    <meta name="author" content="VisaalPatel" />
+
+    <link href="css/playground.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">PLAYGROUND</div>
+      <div class="content" id="content">
+        <div class="new-test" id="checkboxTesting">
+          <h3>Styling Checkboxes and Retriving Those selected</h3>
+          <div class="date-options" id="dateOptions"></div>
+          <button id="getCheckedboxes">Get Checkboxes</button>
+        </div>
+
+        <div class="new-test" id="promiseTesting">
+          <h3>Testing Promise with Animated Success</h3>
+          <input type="text" id="fakeApiResult" />
+          <div><button id="callApi">Call API</button></div>
+          <div class="promise-result" id="promiseResult"></div>
+        </div>
+
+        <div class="new-test" id="buttonTesting">
+          <h3>Testing a Styled Animated Button</h3>
+
+          <h2>Button Type 1</h2>
+          <div class="new-button">
+            <button class="custom" id="button1">Submit Time</button>
+            <div class="button-processing hide" id="processingAnimation"></div>
+            <div class="processing-border hide" id="processingBorder"></div>
+          </div>
+
+          <h2>Button Type 2</h2>
+          <div class="new-button">
+            <button class="custom type2" id="button2">Submit</button>
+          </div>
+        </div>
+
+        <div class="new-test" id="rangeLimitTesting">
+          <h3>Test: Limit Input Ranges Based on Ranges Already Selected</h3>
+          <input id="no1" name="timeLog1" type="range" min="0" max="4" />
+          <label for="timeLog1">0</label>
+          <input id="no2" name="timeLog2" type="range" min="0" max="4" />
+          <label for="timeLog2">0</label>
+          <input id="no3" name="timeLog3" type="range" min="0" max="4" />
+          <label for="timeLog1">0</label>
+          <div id="total">Total: 0</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/checkbox.js"></script>
+    <script src="js/promises.js"></script>
+    <script src="js/button.js"></script>
+    <script src="js/ranges.js"></script>
+  </body>
+</html>

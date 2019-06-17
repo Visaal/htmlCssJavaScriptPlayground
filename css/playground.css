@@ -1,0 +1,209 @@
+:root {
+  font-family: sans-serif;
+  --light-brown: #ded5c4;
+  --light-red: #ef7e56;
+  --blue: #305973;
+  --very-light-grey: #f7f7f7;
+  --light-grey: #eeeeee;
+  --dark-grey: #393e46;
+  --grey: #929aab;
+  --white: #fffdf6;
+}
+
+html {
+  background-color: var(--grey);
+  height: 100%;
+}
+
+body {
+  color: var(--dark-grey);
+  background-color: var(--white);
+  margin: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-family: monospace;
+}
+
+.container {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 60px auto;
+  height: 100%;
+}
+
+.header {
+  grid-column: 1 / -1;
+  padding: 0px 10px 0px 10px;
+  line-height: 60px;
+  font-size: x-large;
+  vertical-align: middle;
+  border-bottom: 1px;
+  border-block-end-style: solid;
+  border-bottom-color: var(--light-grey);
+}
+
+.content {
+  margin: 10px;
+  grid-column: 1 / -1;
+}
+
+.new-test {
+  padding-bottom: 10px;
+  border-bottom: 1px;
+  border-block-end-style: solid;
+  border-bottom-color: var(--light-grey);
+}
+
+/* Checkbox Testing */
+.date-options {
+  margin-bottom: 10px;
+}
+
+.date-options input[type="checkbox"] {
+  display: none;
+}
+
+.date-box {
+  font-family: monospace;
+  font-size: small;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  border-style: solid;
+  border-color: var(--light-grey);
+  border-width: 1px;
+  text-align: center;
+}
+
+.to-update {
+  color: var(--very-light-grey);
+  background-color: var(--dark-grey);
+  border-color: var(--dark-grey);
+}
+
+.date-value {
+  font-size: large;
+  font-weight: 400;
+}
+
+/* Promise Testing with Animated Message */
+.focus-in-expand {
+  animation: focus-in-expand 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes focus-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    filter: blur(12px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+.loader {
+  border: 10px solid var(--light-grey);
+  border-top: 10px solid var(--dark-grey);
+
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.hide {
+  display: none;
+}
+
+/* Custom Button Testing */
+
+button.custom {
+  background-color: var(--light-red);
+  color: var(--very-light-grey);
+  font-family: monospace;
+  font-size: large;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 5px;
+  border: 0;
+  width: 140px;
+  height: 40px;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:hover.custom {
+  animation: button-animation 0.2s ease forwards;
+}
+
+@keyframes button-animation {
+  1% {
+    background-color: var(--dark-grey);
+  }
+  100% {
+    box-shadow: 0 0 0 5px var(--dark-grey);
+    background-color: var(--dark-grey);
+  }
+}
+
+.new-button {
+  position: relative;
+}
+
+.button-processing {
+  position: absolute;
+  top: 0px;
+  left: 70px;
+  width: 1px;
+  height: 40px;
+  background-color: var(--light-grey);
+  border-color: var(--light-grey);
+  animation: in-progress 2.5s ease infinite;
+  transform-origin: center;
+}
+
+@keyframes in-progress {
+  50% {
+    transform: scaleX(140);
+  }
+}
+
+.processing-border {
+  /* postion intial rather than absolute so that space that button took remains  */
+  position: initial;
+  box-shadow: 0 0 0 5px var(--dark-grey);
+  padding: 5px;
+  border: 0;
+  width: 130px;
+  height: 30px;
+}
+
+button:hover.custom.type2 {
+  animation: button2-animation 0.2s ease forwards;
+}
+
+@keyframes button2-animation {
+  1% {
+    background-color: var(--grey);
+  }
+  100% {
+    /* box-shadow: 0 0 0 5px var(--grey); */
+    background-color: var(--grey);
+    border-radius: 65px;
+    width: 120px;
+    height: 120px;
+  }
+}
