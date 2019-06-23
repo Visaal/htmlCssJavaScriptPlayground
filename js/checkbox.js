@@ -22,23 +22,45 @@ checkedboxesButton.addEventListener("click", function() {
   selectedOptions.forEach(element => {
     displayInfo(String(element.id));
   });
+  uncheckBoxes();
 });
 
+function uncheckBoxes() {
+  let selectedOptions = getSelectedCheckboxes("date-option");
+  selectedOptions.forEach(element => {
+    element.checked = false;
+  });
+  let selectedLabels = getSelectedLabels();
+  selectedLabels.forEach(element => {
+    element.classList.toggle("to-update");
+  });
+}
+
+function getSelectedLabels() {
+  let checkedBoxesLabels = document.querySelectorAll(
+    `label[class="date-box to-update"]`
+  );
+  return checkedBoxesLabels;
+}
+
 function addDateOptions(dateToAdd) {
+  let dayOfWeek = String(dateToAdd).slice(0, 3);
   let date = dateToAdd.getDate();
   let month = getMonthName(dateToAdd.getMonth());
   let year = dateToAdd.getFullYear();
   let dateOptions = document.getElementById("dateOptions");
-  let datebox = createDateBoxLabel(date, month, year, dateToAdd);
+  let datebox = createDateBoxLabel(dayOfWeek, date, month, year, dateToAdd);
   let dateboxCheckBox = createDateCheckbox(dateToAdd);
   dateOptions.appendChild(dateboxCheckBox);
   dateOptions.appendChild(datebox);
 }
 
-function createDateBoxLabel(date, month, year, dateObject) {
+function createDateBoxLabel(dayOfWeek, date, month, year, dateObject) {
   let dateBox = document.createElement("label");
   dateBox.setAttribute("class", "date-box");
   dateBox.setAttribute("for", dateObject);
+  let dayValue = createDayOfWeekDiv(dayOfWeek);
+  dateBox.appendChild(dayValue);
   let dateValue = createDateValueDiv(date);
   dateBox.appendChild(dateValue);
   let monthYearValue = createMonthYearDiv(month, year);
@@ -47,6 +69,14 @@ function createDateBoxLabel(date, month, year, dateObject) {
     dateBox.classList.toggle("to-update");
   });
   return dateBox;
+}
+
+function createDayOfWeekDiv(day) {
+  let dayValue = document.createElement("div");
+  dayValue.setAttribute("class", "day-value");
+  let dayValueText = document.createTextNode(day);
+  dayValue.appendChild(dayValueText);
+  return dayValue;
 }
 
 function createDateValueDiv(date) {

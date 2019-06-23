@@ -35,11 +35,32 @@ body {
   grid-column: 1 / -1;
   padding: 0px 10px 0px 10px;
   line-height: 60px;
-  font-size: x-large;
+  font-size: small;
   vertical-align: middle;
   border-bottom: 1px;
   border-block-end-style: solid;
   border-bottom-color: var(--light-grey);
+}
+.title {
+  /* Put the title inside an element so you can give it a font size different to the .header
+  If you don't do this then the search box input font size will be the same as the title font size  */
+  font-size: x-large;
+}
+
+.search-container {
+  /* Have a container for the input field which is floated otherwise the input field will not follow the vertical alignment
+  spcified in the .header */
+  float: right;
+}
+
+.header input[type="text"] {
+  height: 40px;
+  box-sizing: border-box; /* This means the input height including the padding and border
+  will have the height specified rather than adding it to the height specified */
+  font-size: small; /* IMPORTANT: This font size has to match the font size in .header for the box to be aligned vertically */
+  font-family: monospace;
+  padding-left: 10px;
+  color: var(--dark-grey);
 }
 
 .content {
@@ -66,16 +87,26 @@ body {
 .date-box {
   font-family: monospace;
   font-size: small;
-  height: 50px;
+  height: 60px;
   width: 50px;
   display: inline-block;
   border-style: solid;
   border-color: var(--light-grey);
   border-width: 1px;
   text-align: center;
+  transition: 0.1s ease-in-out;
 }
 
 .to-update {
+  transform-origin: top;
+  color: var(--very-light-grey);
+  background-color: var(--dark-grey);
+  border-color: var(--dark-grey);
+}
+
+.day-value {
+  font-size: x-small;
+  padding-bottom: 2px;
   color: var(--very-light-grey);
   background-color: var(--dark-grey);
   border-color: var(--dark-grey);
